@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<meta charset="utf-8">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>CodePen - embedmap</title>
+<link rel="stylesheet" media="screen" href="https://static.codepen.io/assets/fullpage/fullpage-5685e76af3f282c94e211da3f3eb04396287d49fae7709088060651307b9d7a4.css" />
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic' rel='stylesheet'>
+<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<title>CodePen - embedmap</title>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+<style>
+    html { font-size: 15px; }
+    html, body { margin: 0; padding: 0; min-height: 100%; }
+    body { height:100%; display: flex; flex-direction: column; }
+    .referer-warning {
+      background: black;
+      box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+      padding: 0.75em;
+      color: white;
+      text-align: center;
+      font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
+      line-height: 1.2;
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    .referer-warning h1 { font-size: 1.2rem; margin: 0; }
+    .referer-warning a { color: #56bcf9; } /* $linkColorOnBlack */
+  </style>
+</head>
+<body class="">
+<div class="referer-warning">
+<h1>⚠️ Do not enter passwords or personal information on this page. ⚠️</h1>
+This is a code demo posted by a web developer on <a href="https://codepen.io">codepen.io</a>.
+<br />
+A referer from CodePen is required to render this page view, and your browser is not sending one (<a href="https://blog.codepen.io/2017/10/05/regarding-referer-headers/" target="_blank">more details</a>).</h1>
+</div>
+<div id="result-iframe-wrap" role="main">
+<iframe id="result" srcdoc="
+<!DOCTYPE html>
+<html lang=&quot;en&quot; >
+
+<head>
+
+  <meta charset=&quot;UTF-8&quot;>
+  
+<link rel=&quot;apple-touch-icon&quot; type=&quot;image/png&quot; href=&quot;https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png&quot; />
+<meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;CodePen&quot;>
+
+<link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&quot; />
+
+<link rel=&quot;mask-icon&quot; type=&quot;&quot; href=&quot;https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg&quot; color=&quot;#111&quot; />
+
+
+  <title>CodePen - embedmap</title>
+  
+  
+  <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css&quot;>
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+  
+<style>
+h3 {text-align:center;border-bottom:solid 2px #ddd;margin-bottom:0.5em;}
+#formap {
+  overflow:hidden;
+  transition: all 0.5s;
+  width:600px;
+  height:400px;
+}
+#gmapcode {
+  height:7em;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js&quot;></script>
+
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage(&quot;resize&quot;, &quot;*&quot;);
+  }
+</script>
+
+
+</head>
+
+<body translate=&quot;no&quot; >
+  <h3>Free Google maps code generator</h3>
+<div class=&quot;container&quot;>
+<form action=&quot;#&quot;>
+<div class=&quot;row&quot;>
+  <div class=&quot;col s12&quot;>
+    <div class=&quot;input-field&quot;>
+      <i class=&quot;material-icons  prefix&quot;>search</i>
+      <input type=&quot;text&quot; name=&quot;s&quot; id=&quot;s&quot; value=&quot;university of san francisco&quot; placeholder=&quot;Enter Adress&quot; data-role=&quot;none&quot;>
+      <label for=&quot;s&quot;>Enter your Address:</label>
+    </div>
+  </div>
+</div>
+<div class=&quot;row&quot;>
+  <div class=&quot;col s3&quot;>
+
+    <h6>Satellite </h6>
+      <div class=&quot;input-field&quot;>
+        <select id=&quot;ic&quot; name=&quot;ic&quot;>
+          <option name=&quot;no&quot; value=&quot;&quot; selected>OFF</option>
+          <option name=&quot;yes&quot; value=&quot;k&quot; >ON</option>
+        </select>
+      </div>
+
+    <h6 class=&quot;mapz&quot;>Map Zoom </h6>
+    <p class=&quot;range-field&quot;>
+      <input id=&quot;zoom&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;20&quot; step=&quot;1&quot; value=&quot;13&quot;>
+    </p>
+
+    <h6>Width (px): </h6>
+    <p class=&quot;range-field&quot;>
+      <input type=&quot;range&quot; name=&quot;width&quot; id=&quot;width&quot; min=&quot;240&quot; max=&quot;1080&quot; step=&quot;10&quot; value=&quot;600&quot; placeholder=&quot;&quot; class=&quot;numeric&quot;>
+    </p>
+
+    <h6>Height (px):</h6>
+    <p class=&quot;range-field&quot;>
+      <input type=&quot;range&quot; name=&quot;height&quot; id=&quot;height&quot; min=&quot;240&quot; max=&quot;1080&quot; step=&quot;10&quot; value=&quot;400&quot; placeholder=&quot;&quot; class=&quot;numeric&quot;>
+    </p>  
+    <div class=&quot;input-field&quot;>
+      <button id=&quot;h&quot;  data-target=&quot;modal1&quot; class=&quot;btn btn-large  modal-trigger&quot;>Get HTML-Code</button>
+    </div>
+  </div>
+
+  <div class=&quot;col s8&quot;>
+    <div id=&quot;formap&quot;>
+      <iframe width=&quot;600&quot; height=&quot;400&quot; id=&quot;gmap_canvas&quot; src=&quot;https://maps.google.com/maps?q=university+of+san+francisco&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;></iframe>
+    </div>
+    <div id=&quot;modal1&quot; class=&quot;modal&quot;>
+    <div class=&quot;modal-content&quot;>
+      <h4>Code</h4>
+      <p>Copy &amp; Paste this Google-Maps-Code to your Website:</p>
+      <textarea id=&quot;gmapcode&quot; rows=&quot;5&quot;>
+
+      </textarea>
+    </div>
+    <div class=&quot;modal-footer&quot;>
+      <a href=&quot;#!&quot; class=&quot;modal-close waves-effect waves-green btn-flat&quot;>Close</a>
+    </div>
+  </div>
+  </div>
+</div>
+</form>
+</div>
+    <script src=&quot;https://static.codepen.io/assets/common/stopExecutionOnTimeout-db44b196776521ea816683afab021f757616c80860d31da6232dedb8d7cc4862.js&quot;></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
+  
+      <script id=&quot;rendered-js&quot; >
+(function ($) {
+
+  function rebuildmap() {
+    url = &quot;https://maps.google.com/maps?q=&quot;;
+    url += encodeURI($('#s').val());
+    url += '&amp;t=' + $('#ic').val();
+    url += '&amp;z=' + $('#zoom').val();
+    url += '&amp;ie=UTF8&amp;iwloc=&amp;output=embed';
+
+    $('#formap').empty();
+
+    $('<iframe>', {
+      src: url,
+      id: 'gmap_canvas',
+      frameborder: 0,
+      scrolling: 'no',
+      width: $('#width').val(),
+      height: $('#height').val() }).
+    appendTo('#formap');
+    //    $('#gmapcode').val('<iframe width=&quot;'+$('#width').val()+'&quot; height=&quot;'+$('#height').val()+'&quot; src=&quot;'+url+'&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;></iframe>');
+    $('#gmapcode').val($('#formap').html());
+  }
+
+  var timer;
+
+  $('select').formSelect();
+  $('.modal').modal();
+  $('#gmapcode').val($('#formap').html());
+
+
+  function startrebuild() {
+    clearTimeout(timer);
+    timer = setTimeout(rebuildmap, 500);
+  }
+  $('#s,#zoom,select').on('change', startrebuild);
+  $('#s').on('keyup', startrebuild);
+  $(&quot;#width,#height&quot;).on(&quot;change&quot;, function () {
+    $(&quot;#gmap_canvas&quot;).css({ 'width': $('#width').val() + 'px', 'height': $('#height').val() + 'px' });
+    $(&quot;#formap&quot;).css({ 'width': $('#width').val() + 'px', 'height': $('#height').val() + 'px' });
+  });
+})(jQuery);
+//# sourceURL=pen.js
+    </script>
+
+  
+  
+
+</body>
+
+</html>
+ 
+" sandbox="allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media" allowTransparency="true" allowpaymentrequest="true" allowfullscreen="true" class="result-iframe">
+      </iframe>
+</div>
+</body>
+</html>
+
